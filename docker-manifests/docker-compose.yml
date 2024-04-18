@@ -1,0 +1,33 @@
+version: '3.7'
+
+services:
+
+  hoppscotch-frontend:
+    container_name: hoppscotch-frontend
+    image: hoppscotch/hoppscotch-frontend:2023.12.6
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "3080:80"
+      - "3000:3000"
+
+  hoppscotch-backend:
+    container_name: hoppscotch-backend
+    image: hoppscotch/hoppscotch-backend:2023.12.6
+    restart: unless-stopped
+    env_file:
+      - .env 
+    ports:
+      - "3180:80"
+      - "3170:3170"
+
+  hoppscotch-admin:
+    container_name: hoppscotch-admin
+    image: hoppscotch/hoppscotch-admin:2023.12.6
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "3280:80"
+      - "3100:3100"
